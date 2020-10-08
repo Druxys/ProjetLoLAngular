@@ -6,12 +6,14 @@ import { HomeComponent } from './Pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HeaderComponent } from './Pages/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     RouterModule,
