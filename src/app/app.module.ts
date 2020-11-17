@@ -7,22 +7,31 @@ import { ProfilUserComponent } from './Pages/profil-user/profil-user.component';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
+import { SignInComponent } from './Pages/sign-in/sign-in.component';
+import { SignUpComponent } from './Pages/sign-up/sign-up.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfilUserComponent
+    ProfilUserComponent,
+    SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    MDBBootstrapModule.forRoot()
+    HttpClientModule,
+    MDBBootstrapModule.forRoot(),
+    ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
