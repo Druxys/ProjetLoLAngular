@@ -7,18 +7,22 @@ import { ProfilUserComponent } from './Pages/profil-user/profil-user.component';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { DetailsMatchComponent } from './Pages/details-match/details-match.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfilUserComponent
+    ProfilUserComponent,
+    DetailsMatchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot()
 
   ],
