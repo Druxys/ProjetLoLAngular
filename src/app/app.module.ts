@@ -10,9 +10,11 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SignInComponent } from './Pages/sign-in/sign-in.component';
 import { SignUpComponent } from './Pages/sign-up/sign-up.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClient, HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { DetailsMatchComponent } from './Pages/details-match/details-match.component';
 import { HeaderComponent } from './Pages/header/header.component';
+import {JwtInterceptor} from './Helpers/jwt.interceptor';
+import {ErrorInterceptor} from './Helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,9 @@ import { HeaderComponent } from './Pages/header/header.component';
   ],
   providers: [
     HttpClient,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
   ],
   bootstrap: [AppComponent]
 })

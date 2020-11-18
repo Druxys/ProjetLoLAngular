@@ -6,6 +6,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {ProfilUserComponent} from './Pages/profil-user/profil-user.component';
 import {SignInComponent} from './Pages/sign-in/sign-in.component';
 import {DetailsMatchComponent} from './Pages/details-match/details-match.component';
+import {SignUpComponent} from './Pages/sign-up/sign-up.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
   { path: 'match', component: DetailsMatchComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'profil', component: ProfilUserComponent },
+  { path: 'sign-up', component: SignUpComponent },
+
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
