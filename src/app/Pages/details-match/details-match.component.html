@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="header">
+    <div  *ngIf="stats.win === true; then thenBlock else elseBlock">
+    </div>
+    <ng-template #thenBlock><h2>VICTIORE</h2></ng-template>
+    <ng-template #elseBlock><h2>DEFAITE</h2></ng-template>
+<!--    <img src="{{splash}}" alt="">-->
+    <p *ngIf="champion">{{ champion.name }}</p>
+    <p>{{stats.kills}} / {{stats.deaths}} / {{stats.assists}}</p>
+    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item0}}.png" alt="">
+    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item1}}.png" alt="">
+    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item2}}.png" alt="">
+    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item3}}.png" alt="">
+    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item4}}.png" alt="">
+    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item5}}.png" alt="">
+  </div>
+</div>

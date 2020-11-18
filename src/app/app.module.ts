@@ -11,14 +11,19 @@ import { SignInComponent } from './Pages/sign-in/sign-in.component';
 import { SignUpComponent } from './Pages/sign-up/sign-up.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule } from '@angular/common/http';
+import { DetailsMatchComponent } from './Pages/details-match/details-match.component';
+import {HttpClientModule} from '@angular/common/http';
+import { HeaderComponent } from './Pages/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfilUserComponent,
     SignInComponent,
     SignUpComponent,
+    DetailsMatchComponent,
+    HeaderComponent,
+    ProfilUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,8 +31,7 @@ import {HttpClient, HttpClientModule } from '@angular/common/http';
     RouterModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
   ],
   providers: [
     HttpClient,
