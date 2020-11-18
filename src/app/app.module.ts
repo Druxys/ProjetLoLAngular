@@ -9,14 +9,16 @@ import {RouterModule} from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { DetailsMatchComponent } from './Pages/details-match/details-match.component';
 import {HttpClientModule} from '@angular/common/http';
+import { HeaderComponent } from './Pages/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfilUserComponent,
     DetailsMatchComponent
+    HeaderComponent
+    ProfilUserComponent
   ],
   imports: [
     BrowserModule,
