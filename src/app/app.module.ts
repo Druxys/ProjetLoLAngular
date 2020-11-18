@@ -7,6 +7,8 @@ import { ProfilUserComponent } from './Pages/profil-user/profil-user.component';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { DetailsMatchComponent } from './Pages/details-match/details-match.component';
+import {HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './Pages/header/header.component';
 
 
@@ -14,6 +16,7 @@ import { HeaderComponent } from './Pages/header/header.component';
   declarations: [
     AppComponent,
     HomeComponent,
+    DetailsMatchComponent
     HeaderComponent
     ProfilUserComponent
   ],
@@ -21,6 +24,7 @@ import { HeaderComponent } from './Pages/header/header.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot()
 
   ],

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Router} from '@angular/router';
+// import details from '../../../assets/json/details-match.json'
 @Component({
   selector: 'app-profil-user',
   templateUrl: './profil-user.component.html',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  clickDetailsMatch() {
+    console.log('lol')
+      this.router.navigateByUrl('/match')
   }
 
 }

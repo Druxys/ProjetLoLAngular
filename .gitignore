@@ -203,3 +203,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains+all,windows,linux,macos,visualstudiocode,angular
+/src/assets/json/
+!/src/app/Services/env.service.ts
+!/src/app/Services/env.service.spec.ts
