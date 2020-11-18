@@ -1,0 +1,22 @@
+img {
+  width: 75px;
+}
+
+a {
+  color: white;
+}
+
+.profil {
+  border-radius: 100%;
+  width: 50px;
+
+}
+
+header {
+  height: 100px;
+}
+
+.deconnexion {
+  color: #f35462 !important;
+}
+

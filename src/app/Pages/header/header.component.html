@@ -1,67 +1,114 @@
-<body>
+<!--Main Navigation-->
+<header>
+  <mdb-navbar SideClass="navbar fixed-top navbar-1 navbar-light  lighten-2" [containerInside]="false">
+    <a class="navbar-brand" href="#"><img src="../../../assets/images/header/Definitely_not_OPgg_Blanc.png" alt=""></a>
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+      <a class="navbar-brand" href="/profil"><img class="profil"
+                                            src="../../../assets/images/profil-user/placeholder_profil.png" alt=""></a>
+    </mdb-navbar-brand>
 
-<!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-white-1" [containerInside]="false" mdbStickyHeader>
+    <!-- Collapsible content -->
+    <links>
 
-  <!-- Navbar brand -->
-  <mdb-navbar-brand><a class=" orange-text navbar-brand" href="#">Definitely Not OPGG</a></mdb-navbar-brand>
-
-  <!-- Collapsible content -->
-  <links>
-<!-- Search form -->
-
-    <!-- Links -->
-    <ul class="orange-text navbar-nav mr-auto">
-      <form class="form-inline waves-light" mdbWavesEffect>
-        <div class="md-form my-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Rechercher">
+      <!-- Links -->
+      <ul class=" navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class=" text-white nav-link waves-light" mdbWavesEffect>Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class=" text-white nav-link waves-light" mdbWavesEffect>Champions</a>
+        </li>
+        <li class="nav-item">
+          <a class=" text-white nav-link waves-light" mdbWavesEffect>Statistiques</a>
+        </li>
+        <div  *ngIf="authenticationService.currentUserValue; then thenBlock else elseBlock">
         </div>
-      </form>
+        <ng-template #thenBlock>
+          <li class="nav-item">
+            <a (click)="logout()" class="deconnexion nav-link waves-light" mdbWavesEffect>Déconnexion</a>
+          </li>
+        </ng-template>
+        <ng-template #elseBlock>
+          <li class="nav-item">
+            <a (click)="connection()" class=" text-white nav-link waves-light" mdbWavesEffect>Connectez-vous</a>
+          </li>
+        </ng-template>
 
-      <li class="nav-item active">
-        <a class="nav-link waves-light" mdbWavesEffect>Accueil<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Statistique</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Tournois</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Equipes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Champions</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Classements</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Pro</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Parametres</a>
-      </li>
-    </ul>
-    <!-- Links -->
+      </ul>
+      <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+  </mdb-navbar>
 
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item">
-        <a class="nav-link">1 <mdb-icon fas icon="envelope"></mdb-icon></a>
-      </li>
-      <li class="nav-item avatar dropdown" dropdown>
-        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0"></a>
-        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
-        </div>
-      </li>
-    </ul>
-  </links>
-  <!-- Collapsible content -->
 
-</mdb-navbar>
-<!--/.Navbar-->
+</header>
 
-</body>
+
+<!--<body>-->
+
+<!--&lt;!&ndash;Navbar&ndash;&gt;-->
+<!--<mdb-navbar SideClass="navbar navbar-expand-lg navbar-white-1" [containerInside]="false" mdbStickyHeader>-->
+
+<!--  &lt;!&ndash; Navbar brand &ndash;&gt;-->
+<!--  <mdb-navbar-brand><a class=" orange-text navbar-brand" href="#">Definitely Not OPGG</a></mdb-navbar-brand>-->
+
+<!--  &lt;!&ndash; Collapsible content &ndash;&gt;-->
+<!--  <links>-->
+<!--&lt;!&ndash; Search form &ndash;&gt;-->
+
+<!--    &lt;!&ndash; Links &ndash;&gt;-->
+<!--    <ul class="orange-text navbar-nav mr-auto">-->
+<!--      <form class="form-inline waves-light" mdbWavesEffect>-->
+<!--        <div class="md-form my-0">-->
+<!--            <input class="form-control mr-sm-2" type="text" placeholder="Rechercher">-->
+<!--        </div>-->
+<!--      </form>-->
+
+<!--      <li class="nav-item active">-->
+<!--        <a class="nav-link waves-light" mdbWavesEffect>Accueil<span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link waves-light" mdbWavesEffect>Statistique</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link waves-light" mdbWavesEffect>Tournois</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link waves-light" mdbWavesEffect>Equipes</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link waves-light" mdbWavesEffect>Champions</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link waves-light" mdbWavesEffect>Classements</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link waves-light" mdbWavesEffect>Pro</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link waves-light" mdbWavesEffect>Parametres</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--    &lt;!&ndash; Links &ndash;&gt;-->
+
+<!--    <ul class="navbar-nav ml-auto nav-flex-icons">-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link">1 <mdb-icon fas icon="envelope"></mdb-icon></a>-->
+<!--      </li>-->
+<!--      <li class="nav-item avatar dropdown" dropdown>-->
+<!--        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>-->
+<!--          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0"></a>-->
+<!--        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">-->
+<!--          <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>-->
+<!--          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </links>-->
+<!--  &lt;!&ndash; Collapsible content &ndash;&gt;-->
+
+<!--</mdb-navbar>-->
+<!--&lt;!&ndash;/.Navbar&ndash;&gt;-->
+
+<!--</body>-->
