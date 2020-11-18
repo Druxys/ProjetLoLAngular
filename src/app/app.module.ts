@@ -12,7 +12,6 @@ import { SignUpComponent } from './Pages/sign-up/sign-up.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule } from '@angular/common/http';
 import { DetailsMatchComponent } from './Pages/details-match/details-match.component';
-import {HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './Pages/header/header.component';
 
 @NgModule({
