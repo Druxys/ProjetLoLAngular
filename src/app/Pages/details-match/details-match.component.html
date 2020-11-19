@@ -1,17 +1,170 @@
 <div class="container-fluid">
   <div class="header">
-    <div  *ngIf="stats.win === true; then thenBlock else elseBlock">
+    <div *ngIf="stats.win === true; then thenBlock else elseBlock">
     </div>
-    <ng-template #thenBlock><h2>VICTIORE</h2></ng-template>
-    <ng-template #elseBlock><h2>DEFAITE</h2></ng-template>
-<!--    <img src="{{splash}}" alt="">-->
-    <p *ngIf="champion">{{ champion.name }}</p>
-    <p>{{stats.kills}} / {{stats.deaths}} / {{stats.assists}}</p>
-    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item0}}.png" alt="">
-    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item1}}.png" alt="">
-    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item2}}.png" alt="">
-    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item3}}.png" alt="">
-    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item4}}.png" alt="">
-    <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item5}}.png" alt="">
+    <ng-template #thenBlock>
+      <h2>VICTIORE</h2>
+    </ng-template>
+    <ng-template #elseBlock>
+      <h2>DEFAITE</h2>
+    </ng-template>
+    <!--    <img src="{{splash}}" alt="">-->
+    <div id="avatar" *ngIf="champion">
+      <p>{{ champion.name }} (Lvl {{stats.champLevel}})</p>
+      <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/{{ champion.name }}.png" alt="">
+    </div>
+    <br>
+    <h2>Items</h2>
+    <div id="items"><img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item0}}.png" alt="">
+      <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item1}}.png" alt="">
+      <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item2}}.png" alt="">
+      <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item3}}.png" alt="">
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item4}}.png" alt="">
+      <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item5}}.png" alt="">
+      <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/item/{{stats.item6}}.png" alt="">
+    </div>
+    <br>
+
+    <div id="divChart">
+
+      <h2>Ratio</h2>
+      <canvas id="myChart8"></canvas>
+      <br>
+
+      <h2>Dégats</h2>
+      <canvas id="myChart5"></canvas>
+      <br>
+
+      <h2>Dégats reçu</h2>
+      <canvas id="myChart6"></canvas>
+      <br>
+
+      <h2>Dégats sur les champions</h2>
+      <canvas id="myChart1"></canvas>
+      <br>
+
+      <h2>Scores</h2>
+      <canvas id="myChart2"></canvas>
+      <br>
+
+      <h2>Minions tués</h2>
+      <canvas id="myChart3"></canvas>
+      <br>
+
+      <h2>Dépenses</h2>
+      <canvas id="myChart4"></canvas>
+      <br>
+
+      <h2>Multi Kills</h2>
+      <canvas id="myChart7"></canvas>
+      <br>
+
+      <h2>Dégats Multi Kills</h2>
+      <canvas id="myChart9"></canvas>
+      <br>
+
+      <h2>Soins</h2>
+      <canvas id="myChart10"></canvas>
+      <br>
+
+      <h2>Stats Perks</h2>
+      <canvas id="myChart11"></canvas>
+      <br>
+
+      <h2>Crowd Control</h2>
+      <canvas id="myChart12"></canvas>
+      <br>
+
+      <h2>Autres</h2>
+      <canvas id="myChart13"></canvas>
+      <br>
+
+
+    </div>
+
+    <!-- <div>
+      <p>{{stats.kills}} / {{stats.deaths}} / {{stats.assists}}</p>
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/score.png" alt=""> Score du joueur :
+      {{stats.combatPlayerScore}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/score.png" alt=""> objective PlayerScore :
+      {{stats.objectivePlayerScore}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/score.png" alt=""> vision Score :
+      {{stats.visionScore}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/score.png" alt=""> Total Player Score :
+      {{stats.totalPlayerScore}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/score.png" alt=""> Total Score Rank :
+      {{stats.totalScoreRank}}
+      <p>Double kills : {{stats.doubleKills}}</p>
+      <p>triple Kills : {{stats.tripleKills}}</p>
+      <p>quadraKills : {{stats.quadraKills}}</p>
+      <p>penta Kills : {{stats.pentaKills}}</p>
+      <p>Killing Sprees : {{stats.killingSprees}}</p>
+      <p>unreal Kills : {{stats.unrealKills}}</p>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/items.png" alt=""> Or gagné : {{stats.goldEarned}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/items.png" alt=""> Or dépensé : {{stats.goldSpent}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/items.png" alt=""> sight Wards acheté :
+      {{stats.sightWardsBoughtInGame}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/items.png" alt=""> vision Wards acheté :
+      {{stats.visionWardsBoughtInGame}}
+      <p>Dégats à l'objectif : {{stats.damageDealtToObjectives}}</p>
+      <p>Dégats aux tourelles : {{stats.damageDealtToTurrets}}</p>
+      <p>Self Mitigated Damage : {{stats.damageSelfMitigated}}</p>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/champion.png" alt=""> Dégats Magique sur les
+      champions: {{stats.magicDamageDealtToChampions}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/champion.png" alt=""> Dégats physique sur les
+      champions : {{stats.physicalDamageDealtToChampions}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/champion.png" alt=""> true Damage sur les champions
+      :
+      {{stats.trueDamageDealtToChampions}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/champion.png" alt=""> Total de dégats sur les
+      champions : {{stats.totalDamageDealtToChampions}}
+      <p>Dégats Magique : {{stats.magicDamageDealt}}</p>
+      <p>Dégats physique : {{stats.physicalDamageDealt}}</p>
+      <p>Dégats Magique reçu : {{stats.magicalDamageTaken}}</p>
+      <p>Dégats physique reçu : {{stats.physicalDamageTaken}}</p>
+      <p>true Damage Dealt : {{stats.trueDamageDealt}}</p>
+      <p>true damage reçu : {{stats.trueDamageTaken}}</p>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/minion.png" alt=""> Minions Tué :
+      {{stats.neutralMinionsKilled}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/minion.png" alt=""> Minions Tué Enemy Jungle :
+      {{stats.neutralMinionsKilledEnemyJungle}}
+      <br>
+      <img src="http://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/minion.png" alt=""> Minions Tué Team Jungle :
+      {{stats.neutralMinionsKilledTeamJungle}}
+      <p>Dégats à l'objectif : {{stats.damageDealtToObjectives}}</p>
+      <p>Total de dégats : {{stats.totalDamageDealt}}</p>
+      <p>Total de dégats reçu : {{stats.totalDamageTaken}}</p>
+      <p>Largest MultiKill : {{stats.largestMultiKill}}</p>
+      <p>Largest Critical Strike : {{stats.largestCriticalStrike}}</p>
+      <p>Largest KillingSpree : {{stats.largestKillingSpree}}</p>
+      <p>Total de soins : {{stats.totalHeal}}</p>
+      <p>Total d'unité soigné : {{stats.totalUnitsHealed}}</p>
+      <p>stat Perk 0 : {{stats.statPerk0}}</p>
+      <p>stat Perk 1 : {{stats.statPerk1}}</p>
+      <p>stat Perk 2 : {{stats.statPerk2}}</p>
+      <p>time CCing Others : {{stats.timeCCingOthers}}</p>
+      <p>Total Time Crowd Control Dealt : {{stats.totalTimeCrowdControlDealt}}</p>
+      <p>Inhibitor tué : {{stats.inhibitorKills}}</p>
+      <p>Tourelles tué : {{stats.turretKills}}</p>
+      <p>wards tué : {{stats.wardsKilled}}</p>
+      <p>wards Placé : {{stats.wardsPlaced}}</p>
+      <p>Longest Time Spent Living : {{stats.longestTimeSpentLiving}}</p>
+
+      <p>ID du participant : {{stats.participantId}}</p>
+    </div> -->
+
   </div>
 </div>
