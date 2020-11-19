@@ -14,8 +14,8 @@ export class DataDragonService {
   constructor(private http: HttpClient) { }
 
 
-  getIcon(): Observable<Summoner> {
-    const url = `https://ddragon.leagueoflegends.com/cdn/10.23.1/img/profileicon/4050.png`;
+  getIcon(idIcon): Observable<Summoner> {
+    const url = `https://ddragon.leagueoflegends.com/cdn/10.23.1/img/profileicon/${idIcon}.png`;
     return this.http.get<Summoner>(url).pipe(
       tap(_ => console.log('get version')),
       catchError(this.handleError<Summoner>('error get version datadragon'))

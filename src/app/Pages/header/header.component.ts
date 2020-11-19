@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RiotApiService} from '../../Services/riot-api.service';
 import {AuthService} from '../../Services/auth.service';
 import {Router} from '@angular/router';
+import {DataDragonService} from '../../Services/data-dragon.service';
+import summonerJSON from '../../../assets/json/getBySummonerName.json'
 
 @Component({
   selector: 'app-header',
@@ -10,17 +12,20 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   stateProfil;
+  profil;
   constructor(private riotApiService: RiotApiService,
               public authenticationService: AuthService,
-              private router: Router
+              private router: Router,
+              private dataDragon: DataDragonService
   ) {
 
   }
 
   ngOnInit(): void {
+      this.profil = summonerJSON;
     this.riotApiService.getSummonerByName().subscribe(summoner => {
       console.log(summoner);
-    })
+    });
     if (this.authenticationService.currentUserValue) {
       this.stateProfil = true;
     }
@@ -28,14 +33,14 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl('/');
     this.stateProfil = false;
 
   }
 
 
   connection() {
-    this.router.navigateByUrl('/sign-in')
+    this.router.navigateByUrl('/sign-in');
     this.stateProfil = true;
 
   }

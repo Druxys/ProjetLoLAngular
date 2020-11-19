@@ -15,6 +15,7 @@ import { DetailsMatchComponent } from './Pages/details-match/details-match.compo
 import { HeaderComponent } from './Pages/header/header.component';
 import {JwtInterceptor} from './Helpers/jwt.interceptor';
 import {ErrorInterceptor} from './Helpers/error.interceptor';
+import { SummonerComponent } from './Pages/summoner/summoner.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ErrorInterceptor} from './Helpers/error.interceptor';
     DetailsMatchComponent,
     HeaderComponent,
     ProfilUserComponent,
+    SummonerComponent,
   ],
   imports: [
     BrowserModule,

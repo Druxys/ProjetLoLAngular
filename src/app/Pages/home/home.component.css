@@ -9,3 +9,14 @@ h4 {
 
 h5 {
 }
+
+body {
+  background-color: #15202B;
+
+}
+
+input {
+  margin-left: 10%;
+  width: 80%
+;  background-color: white !important;
+}
