@@ -7,6 +7,7 @@ import {ProfilUserComponent} from './Pages/profil-user/profil-user.component';
 import {SignInComponent} from './Pages/sign-in/sign-in.component';
 import {DetailsMatchComponent} from './Pages/details-match/details-match.component';
 import {SignUpComponent} from './Pages/sign-up/sign-up.component';
+import {SummonerComponent} from './Pages/summoner/summoner.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'profil', component: ProfilUserComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'summoner', component: SummonerComponent },
+
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

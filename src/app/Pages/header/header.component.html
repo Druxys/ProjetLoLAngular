@@ -1,12 +1,22 @@
 <!--Main Navigation-->
 <header>
   <mdb-navbar SideClass="navbar fixed-top navbar-1 navbar-light  lighten-2" [containerInside]="false">
-    <a class="navbar-brand" href="#"><img src="../../../assets/images/header/Definitely_not_OPgg_Blanc.png" alt=""></a>
+
     <!-- Navbar brand -->
-    <mdb-navbar-brand>
-      <a class="navbar-brand" href="/profil"><img class="profil"
-                                            src="../../../assets/images/profil-user/placeholder_profil.png" alt=""></a>
-    </mdb-navbar-brand>
+    <div  *ngIf="authenticationService.currentUserValue; then thenBlockProfil else elseBlockProfil">
+    </div>
+    <ng-template #thenBlockProfil>
+      <mdb-navbar-brand >
+        <a class="navbar-brand" href="/profil"><img class="profil"
+                                                    src="https://ddragon.leagueoflegends.com/cdn/10.23.1/img/profileicon/{{profil.profileIconId}}.png" alt=""></a>
+      </mdb-navbar-brand>
+
+    </ng-template>
+    <ng-template #elseBlockProfil>
+      <a class="navbar-brand" href="/sign-in"><img class="profil"
+                                                  src="../../../assets/images/header/avatar_placeholder.png" alt=""></a>
+    </ng-template>
+    <a class="navbar-brand" href="#"><img src="../../../assets/images/header/Definitely_not_OPgg_Blanc.png" alt=""></a>
 
     <!-- Collapsible content -->
     <links>
@@ -39,9 +49,8 @@
       <!-- Links -->
     </links>
     <!-- Collapsible content -->
+
   </mdb-navbar>
-
-
 </header>
 
 

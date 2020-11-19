@@ -11,7 +11,6 @@ import {VersionService} from './version.service';
 })
 export class ChampionService {
 
-  public version;
   champList = 'https://ddragon.leagueoflegends.com/cdn/10.22.1/data/fr_FR/champion.json';
 
   specificChamp = 'https://ddragon.leagueoflegends.com/cdn/10.22.1/data/fr_FR/champion/';
@@ -26,17 +25,25 @@ export class ChampionService {
   // Pour trouver une abilité il faut la chercher dans  dans la route du champion, dans la le champ "spells". C'est à l' "id"
   abilityChamp = 'http://ddragon.leagueoflegends.com/cdn/10.22.1/img/spell/AatroxQ.png';
   public versionChamp: any;
+   version: any;
 
   constructor(private http: HttpClient, public versionService: VersionService) {
-
+  this.getVersion().subscribe(version => {
+    this.version = version;
+  });
   }
 
   getVersion() {
-
+    console.log(this.version);
+    return this.http.get('https://ddragon.leagueoflegends.com/api/versions.json').pipe(
+      tap(_ => console.log('get version')),
+      catchError(this.handleError<Champion>('error get version datadragon'))
+    );
   }
 
   getChampionAll(): Observable<Champion> {
-    // const url = `https://ddragon.leagueoflegends.com/cdn/${this.version.champion}/data/fr_FR/champion.json`;
+    console.log(this.version)
+    // const url = `https://ddragon.leagueoflegends.com/cdn/${this.version[0]}/data/fr_FR/champion.json`;
     const url = `https://ddragon.leagueoflegends.com/cdn/10.22.1/data/fr_FR/champion.json`;
     return this.http.get<Champion>(url).pipe(
       tap(_ => console.log('get version')),

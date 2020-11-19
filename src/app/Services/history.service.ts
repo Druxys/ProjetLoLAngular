@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
-import {Summoner} from '../Models/Summoner';
+import {Champion} from '../Models/Champion';
 import {catchError, tap} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataDragonService {
-
-  summonerIcon = 'https://ddragon.leagueoflegends.com/cdn/10.23.1/img/profileicon/4050.png';
+export class HistoryService {
 
   constructor(private http: HttpClient) { }
 
 
-  getIcon(idIcon): Observable<Summoner> {
-    const url = `https://ddragon.leagueoflegends.com/cdn/10.23.1/img/profileicon/${idIcon}.png`;
-    return this.http.get<Summoner>(url).pipe(
+
+  getHistoryBySummonerName(summoner): Observable<History> {
+    const url = environment.API_GW + '/passerelle/getHistoryMatchList/' + summoner;
+    return this.http.get<History>(url).pipe(
       tap(_ => console.log('get version')),
-      catchError(this.handleError<Summoner>('error get version datadragon'))
+      catchError(this.handleError<History>('error get version datadragon'))
     );
   }
 
