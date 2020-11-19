@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://127.0.0.1:8000'
+  API_URL: 'http://127.0.0.1:8001',
+  API_GW:  'http://localhost:8000/euw1',
+  API_KEY: 'RGAPI-0e2937cb-e807-44eb-93b7-9eb24281c0d7'
 };
 
 /*
