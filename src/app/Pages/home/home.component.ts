@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
         next: (history) => {
           console.log(history);
           // get return url from route parameters or default to '/'
-          this.router.navigate(['/summoner'], {state : { data : history}});
+          this.router.navigate(['/summoner'], {state : {history : history, user: this.f.summoner.value }});
         },
         error: error => {
           this.loading = false;

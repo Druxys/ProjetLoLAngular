@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ChampionService} from '../../Services/champion.service';
-// @ts-ignore
 import matchJSON from '../../../assets/json/details-match.json'
 @Component({
   selector: 'app-details-match',

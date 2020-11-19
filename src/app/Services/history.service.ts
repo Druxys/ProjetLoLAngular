@@ -4,6 +4,7 @@ import {Champion} from '../Models/Champion';
 import {catchError, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {Historic} from '../Models/Historic';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,19 @@ export class HistoryService {
 
 
 
-  getHistoryBySummonerName(summoner): Observable<History> {
+  getHistoryBySummonerName(summoner): Observable<Historic> {
     const url = environment.API_GW + '/passerelle/getHistoryMatchList/' + summoner;
-    return this.http.get<History>(url).pipe(
+    return this.http.get<Historic>(url).pipe(
       tap(_ => console.log('get version')),
-      catchError(this.handleError<History>('error get version datadragon'))
+      catchError(this.handleError<Historic>('error get version datadragon'))
+    );
+  }
+
+  getHistoryByIdMatch(match): Observable<Historic> {
+    const url = environment.API_GW + '/passerelle/getHistoryMatch/' + match;
+    return this.http.get<Historic>(url).pipe(
+      tap(_ => console.log('get version')),
+      catchError(this.handleError<Historic>('error get history'))
     );
   }
 
