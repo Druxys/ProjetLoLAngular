@@ -73,4 +73,9 @@ export class SummonerComponent implements OnInit {
 
   }
 
+  clickOnMatchDetails(matchDetails, user) {
+    console.log(matchDetails);
+    this.router.navigate(['/match'], {state : {matchDetails: matchDetails, user: user}});
+  }
+
 }

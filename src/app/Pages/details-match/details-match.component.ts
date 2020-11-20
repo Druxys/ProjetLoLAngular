@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChampionService } from '../../Services/champion.service';
 import matchJSON from '../../../assets/json/details-match.json';
 import { Chart } from 'node_modules/chart.js';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-details-match',
@@ -24,19 +25,31 @@ export class DetailsMatchComponent implements OnInit {
   splash;
   gameVersion: string;
   stats: any;
-  constructor(private championService: ChampionService) {
+  private user: any;
+  private match: any;
+  constructor(private championService: ChampionService,
+              private router: Router,) {
+
+    console.log(this.router.getCurrentNavigation());
+    if (!this.router.getCurrentNavigation()) {
+      this.router.navigate(['/home']);
+    } else {
+      this.match = this.router.getCurrentNavigation().extras.state.matchDetails;
+      this.user = this.router.getCurrentNavigation().extras.state.user;
+      console.log(this.match);
+    }
   }
 
   ngOnInit(): void {
-    console.log(matchJSON);
-    this.matchArrayParticipant = Object.values(matchJSON.participantIdentities);
-    this.matchArrayParticipantDetails = Object.values(matchJSON.participants);
-    this.gameVersion = matchJSON.gameVersion;
+    console.log(this.match);
+    this.matchArrayParticipant = Object.values(this.match.participantIdentities);
+    this.matchArrayParticipantDetails = Object.values(this.match.participants);
+    this.gameVersion = this.match.gameVersion;
     console.log(this.matchArrayParticipantDetails);
 
     // GET THE PARTICIPANT ID
     this.matchArrayParticipant.forEach(participant => {
-      if (participant.player.summonerName === this.summonerName) {
+      if (participant.player.summonerName === this.user) {
         this.participantId = participant.participantId;
       }
     });
@@ -49,7 +62,7 @@ export class DetailsMatchComponent implements OnInit {
         this.key = participant.championId.toString();
       }
     });
-    console.log(this.key);
+    console.log(this.user);
     console.log(this.stats);
 
     // GET CHAMPION OF THE SELECTED PLAYER
