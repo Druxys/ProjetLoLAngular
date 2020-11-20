@@ -1,0 +1,21 @@
+.header {
+}
+
+#divChart{
+  display: block;
+  width: 400px;
+  height: 400px;
+}
+
+h2 {
+  color: #BF720C;
+  text-align: center;
+}
+
+#avatar {
+  text-align: center;
+}
+
+#items {
+  text-align: center;
+}

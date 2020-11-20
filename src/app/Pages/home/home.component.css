@@ -1,0 +1,40 @@
+h1 {
+  color: #bf720c;
+  text-align: center;
+}
+
+h2 {
+  color: #bf720c;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+h5 {
+}
+
+body {
+  background-color: #15202b;
+}
+
+input {
+  margin-left: 10%;
+  margin-bottom: 5%;
+  width: 80%;
+  background-color: white !important;
+}
+
+#searchButton {
+  text-align: center;
+}
+
+#logo {
+	max-width: 100%;
+	height: auto;
+}

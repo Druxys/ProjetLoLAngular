@@ -1,0 +1,64 @@
+<body>
+
+  <div class="active-cyan active-cyan-2 mb-3">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+      <input formControlName="summoner" class="form-control" type="text" placeholder="Rechercher un joueur"
+        aria-label="Search">
+      <div id="searchButton"><button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Rechercher
+        </button></div>
+    </form>
+  </div>
+  <div class="container-fluid">
+    <h3>Bienvenue sur</h3>
+    <h2>Definitely Not OP.gg</h2>
+    <img id="logo" src="../../../assets/images/header/Definitely_not_OPgg_Blanc.png" alt="">
+  </div>
+
+  <hr />
+
+  <div class="container-fluid">
+    <h2>Tournois</h2>
+
+    <ul class="list-unstyled">
+      <li class="media">
+        <img class="d-flex mr-3"
+          src="https://vignette.wikia.nocookie.net/leagueoflegends/images/b/bb/Odyssey_Karma_Chroma_profileicon.png/revision/latest/scale-to-width-down/90?cb=20200930131016"
+          alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1 font-weight-bold">Tournoi (24 équipes)</h5>
+          24 équipes réparties en 8 poules de 3 équipes.
+          A l’issue des poules, les deux premiers de chaque poule iront dans un arbre Pro et le dernier en arbre élite.
+          Les deux arbres se feront en double élimination (looser bracket).
+        </div>
+      </li>
+      <li class="media my-4">
+        <img class="d-flex mr-3"
+          src="https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d5/Odyssey_Kayn_Chroma_profileicon.png/revision/latest/scale-to-width-down/90?cb=20200930131017"
+          alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1 font-weight-bold">Tournoi (12 équipes)</h5>
+          12 équipes réparties en 4 poules de 3 équipes.
+          A l’issue des poules, les deux premiers de chaque poule iront dans un arbre Pro et le dernier en arbre élite.
+          Les deux arbres se feront en double élimination (looser bracket).
+        </div>
+      </li>
+      <li class="media">
+        <img class="d-flex mr-3"
+          src="https://vignette.wikia.nocookie.net/leagueoflegends/images/f/fc/Galaxy_Slayer_Zed_Chroma_profileicon.png/revision/latest/scale-to-width-down/90?cb=20200930131015"
+          alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1 font-weight-bold">Tournoi (6 équipes)</h5>
+          6 équipes réparties en 3 poules de 2 équipes.
+          A l’issue des poules, les deux premiers de chaque poule iront dans un arbre Pro et le dernier en arbre élite.
+          Les deux arbres se feront en double élimination (looser bracket).
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+
+</body>
