@@ -3,29 +3,52 @@
     <h3>{{user}}</h3>
   </div>
   <div *ngFor="let match of matchesArray" class="row">
-    <div *ngFor="let matchDetails of matchesDetails">
-      <div *ngIf="matchDetails.gameId === match.gameId">
-        <div *ngFor="let champion of championArray">
-<!--          <p>Champion : {{champion.id}}</p>-->
-<!--          <div *ngIf="match.champion === champion.key"></div>-->
-        </div>
-        <div *ngFor="let participant of matchDetails.participantIdentities">
-          <div *ngIf="participant.player.summonerName === user">
-            <div *ngFor="let participantDetails of matchDetails.participants">
+    <mdb-card>
+      <!--Card image-->
+      <mdb-card-img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="Card image cap"></mdb-card-img>
+      <!--Card content-->
+      <mdb-card-body>
+        <div *ngFor="let matchDetails of matchesDetails">
+          <a (click)="clickOnMatchDetails(matchDetails, user)">
+            <ng-template #thenBlock>
+              <mdb-card-title>
+                <h4 style="color: #92E36C">VICTOIRE</h4>
+              </mdb-card-title>
+            </ng-template>
+            <ng-template #elseBlock>
+              <mdb-card-title>
+                <h4 style="color: #F44E4E">DEFAITE</h4>
+              </mdb-card-title>
+            </ng-template>
+            <div *ngIf="matchDetails.gameId === match.gameId">
+              <div *ngFor="let champion of championArray">
+                <!--          <p>Champion : {{champion.id}}</p>-->
+                <!--          <div *ngIf="match.champion === champion.key"></div>-->
+              </div>
+              <div *ngFor="let participant of matchDetails.participantIdentities">
+                <div *ngIf="participant.player.summonerName === user">
+                  <div *ngFor="let participantDetails of matchDetails.participants">
 
-<!--              Displaying stats of something else for the specific summoner-->
-              <div *ngIf="participantDetails.participantId === participant.participantId">
-                <p>{{participantDetails.stats.kills}} / {{participantDetails.stats.deaths}} / {{participantDetails.stats.assists}}</p>
-                <div *ngIf="participantDetails.stats.win === true; then thenBlock else elseBlock"></div>
-                <ng-template #thenBlock><p>VICTOIRE</p></ng-template>
-                <ng-template #elseBlock><p>DEFAITE</p></ng-template>
+                    <!--              Displaying stats of something else for the specific summoner-->
+                    <div *ngIf="participantDetails.participantId === participant.participantId">
+                      <mdb-card-text>
+                        <p>{{participantDetails.stats.kills}} / {{participantDetails.stats.deaths}}
+                          / {{participantDetails.stats.assists}}</p>
+                      </mdb-card-text>
+
+                      <div *ngIf="participantDetails.stats.win === true; then thenBlock else elseBlock"></div>
+
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </a>
 
-    </div>
+        </div>
+      </mdb-card-body>
+    </mdb-card>
+
 
   </div>
 </div>

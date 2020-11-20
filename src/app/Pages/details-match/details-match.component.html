@@ -3,10 +3,10 @@
     <div *ngIf="stats.win === true; then thenBlock else elseBlock">
     </div>
     <ng-template #thenBlock>
-      <h2>VICTIORE</h2>
+      <h2 style="color: #92E36C">VICTOIRE</h2>
     </ng-template>
     <ng-template #elseBlock>
-      <h2>DEFAITE</h2>
+      <h2 style="color: #F44E4E">DEFAITE</h2>
     </ng-template>
     <!--    <img src="{{splash}}" alt="">-->
     <div id="avatar" *ngIf="champion">
